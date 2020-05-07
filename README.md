@@ -1,2 +1,0 @@
-# mdm
-Created with CodeSandbox
