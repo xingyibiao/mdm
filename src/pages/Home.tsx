@@ -76,9 +76,9 @@ export default function() {
       <HomeHeader>下载中</HomeHeader>
       <HomeContent>
         {tasks.map(task => (
-          <TaskItem>
+          <TaskItem  key={task.id}>
             <TaskItemTitle>{task.title}</TaskItemTitle>
-            <Progress key={task.id} ratio={task.progress} />
+            <Progress ratio={task.progress} />
           </TaskItem>
         ))}
       </HomeContent>
