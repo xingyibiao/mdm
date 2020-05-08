@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import Progress from "../components/progress";
+import Icon from "../components/icon";
 
 const FlexBox = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ const Colum = styled(FlexBox)`
   flex-direction: column;
 `;
 
-const Home = styled(Colum)``;
+const HomeContainer = styled(Colum)``;
 
 const HomeHeader = styled(FlexBox)`
   font-size: 16px;
@@ -25,8 +26,16 @@ const TaskItem = styled(Colum)`
   color: #333;
 `;
 
-const TaskItemTitle = styled.div`
+const TaskItemTitle = styled(FlexBox)`
+  justify-content: space-between;
+  align-items: center;
   padding-left: 10px;
+`;
+
+const TaskItemTitleRight = styled(FlexBox)`
+  width: 80px;
+  justify-content: space-around;
+  font-size: 8px;
 `;
 
 type ITaskItem = {
@@ -68,20 +77,26 @@ const mockTasks: ITaskItem[] = [
   }
 ];
 
-export default function() {
+export default function Home() {
   const [tasks, setTasks] = useState<ITaskItem[]>(mockTasks);
 
   return (
-    <Home>
+    <HomeContainer>
       <HomeHeader>下载中</HomeHeader>
       <HomeContent>
         {tasks.map(task => (
-          <TaskItem  key={task.id}>
-            <TaskItemTitle>{task.title}</TaskItemTitle>
+          <TaskItem key={task.id}>
+            <TaskItemTitle>
+              <span>{task.title}</span>
+              <TaskItemTitleRight>
+                <Icon name="bofang" />
+                <Icon name="lajitong" />
+              </TaskItemTitleRight>
+            </TaskItemTitle>
             <Progress ratio={task.progress} />
           </TaskItem>
         ))}
       </HomeContent>
-    </Home>
+    </HomeContainer>
   );
 }

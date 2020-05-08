@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1588903482982'); /* IE9 */
+  src: url('iconfont.eot?t=1588903482982#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOkAAsAAAAACDAAAANWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDIgqDVIMOATYCJAMUCwwABCAFhG0HUhsUBxEVnKvIfhS4sTOsrJxnHnmLtaBJ+v9H8NDnVe8jPZmf1mCt9AoaAKclMKsrWHfB5zRAgIrY/d/WuYSydBGL1LOu/QMb+HhjnP1xr2rGtoDNZ9/iMsfGhHIBDAcoQHvj2BVvQXoF0A66i5gUdfE4BGCorTnR/zJ8PDYaME4AojwtysGu+NHoIGUj8HUs1Yh1WNhyubwGrOU/L77SNhsklgJMHV04IJ/eH2p+iKh53jzpFIVgOysQrAIFNAcaRG6nPR0l480pTLabpjXwoRHID7U+RDwPW8pcrodrCq5Plah/HsIHKPYD0NtOaPhQEyMQ8KEWAgkfXAQKPkSEL+QUCwADBIBVwEEH33CuQKLx+cNhEd0gqqoGnpl05Kz8a9vPNSk6urfMbDqGnne8krP1hLC2VuRVD5hq5l1aeWX+5RUX84zYUWGCK/pmNwodPVFDOTooDNuPO6GVIyPzK5ITx0OPCk3tKq0xo7wYHFfnBPpmOSJ3jilZWIHxc2lSMTrtS1rfPvSjbdoSu3CyJO1b2/QAGV9Cv7zg2lD9V6FbbUNrA7EDqFFe1c/HXe+a7TrBHiUN3VIxbZcQu8zpvTScEJ4qrrqVKrkRtwNdCVVpp8LLc4+Xbrr3ZdPcigQ2Vbix02If2En3aqR3gu6S0DtypdkD90HCXFT1YO5494TrVRDMXAfTAJeo+vIdgLwvv4LnqXkKAJXY/5u/w6vNLd9lhbr/tx0NwJMnL7vyJZ6nUQA2EiYL/p1gYoPORcBg6bQW89OARXt/aJIEDAbwLHesF9soK00uBoFNJQ2SKGqBwqYhWuObg4VDe/Bh0wsMEYNWO8SZgELoaMC12AJB2BmQBLkCirDraI1/DhaVfQcfYU4KZl7tt5w7VDI7ChrFCIIfpCFXhEw6E6U3jNvCiCnitBdKk4bAtZx66ooVyhYzmnfsqRKQcAkX6zQsCoZaOMNQrUS19m2bup5khVx2Zo4EMhSKgMAPSIVYhWhrNWt8/w2KtQqGDNTN2F+QaKSdA5fFmYC+yqtJda9yTuMt5lGKACJYCVwsKypgnIG6e1AGhZQlWRCt+WynGU2VW8cry2fcBhjgKCsplNDCEj5GZzJVvGTav7kdjj13oO2/nRQmS5WruNMBAAA=') format('woff2'),
+  url('iconfont.woff?t=1588903482982') format('woff'),
+  url('iconfont.ttf?t=1588903482982') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1588903482982#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bofang:before {
+  content: "\e61c";
+}
+
+.icon-bofangzanting:before {
+  content: "\e61d";
+}
+
+.icon-tuzu:before {
+  content: "\e62a";
+}
+
+.icon-lajitong:before {
+  content: "\e62b";
+}
+
