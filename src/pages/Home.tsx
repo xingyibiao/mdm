@@ -46,12 +46,10 @@ const TaskItemTitleRight = styled(FlexBox)`
 type PlayIconName = "bofang" | "bofangzanting";
 
 function mapPlayIconName(status: TaskStatusEnum): PlayIconName {
-  console.log(status);
   return status === TaskStatusEnum.PAUSE ? "bofang" : "bofangzanting";
 }
 
 export default function Home() {
-  // const [tasks, setTasks] = useState<ITaskItem[]>(mockTasks);
   const storeTasks = useSelector<any, ITaskItem[]>(state =>
     state.filter(
       item =>
@@ -69,7 +67,6 @@ export default function Home() {
   function playOrPause(id: number) {
     dispatch(continueOrPauseTask(id));
   }
-  console.log(storeTasks);
 
   return (
     <HomeContainer>
