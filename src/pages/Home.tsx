@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import Progress from "../components/progress";
 import Icon from "../components/icon";
+
+import { deleteTask, continueOrPauseTask } from "../store";
+
+import { TaskStatusEnum } from "../enum";
 
 const FlexBox = styled.div`
   display: flex;
@@ -38,59 +43,51 @@ const TaskItemTitleRight = styled(FlexBox)`
   font-size: 8px;
 `;
 
-type ITaskItem = {
-  id: number;
-  progress: number; // 0-1
-  title: string;
-};
+type PlayIconName = "bofang" | "bofangzanting";
 
-const mockTasks: ITaskItem[] = [
-  {
-    id: 1,
-    progress: 0.5,
-    title: "下载1"
-  },
-  {
-    id: 2,
-    progress: 0.6,
-    title: "下载2"
-  },
-  {
-    id: 3,
-    progress: 0.4,
-    title: "下载3"
-  },
-  {
-    id: 4,
-    progress: 0.3,
-    title: "下载4"
-  },
-  {
-    id: 5,
-    progress: 0.7,
-    title: "下载5"
-  },
-  {
-    id: 6,
-    progress: 0.9,
-    title: "下载6"
-  }
-];
+function mapPlayIconName(status: TaskStatusEnum): PlayIconName {
+  console.log(status);
+  return status === TaskStatusEnum.PAUSE ? "bofang" : "bofangzanting";
+}
 
 export default function Home() {
-  const [tasks, setTasks] = useState<ITaskItem[]>(mockTasks);
+  // const [tasks, setTasks] = useState<ITaskItem[]>(mockTasks);
+  const storeTasks = useSelector<any, ITaskItem[]>(state =>
+    state.filter(
+      item =>
+        item.status === TaskStatusEnum.DOWNLOADING ||
+        item.status === TaskStatusEnum.PAUSE
+    )
+  );
+
+  const dispatch = useDispatch();
+
+  function delTask(id: number) {
+    dispatch(deleteTask(id));
+  }
+
+  function playOrPause(id: number) {
+    dispatch(continueOrPauseTask(id));
+  }
+  console.log(storeTasks);
 
   return (
     <HomeContainer>
       <HomeHeader>下载中</HomeHeader>
       <HomeContent>
-        {tasks.map(task => (
+        {storeTasks.map(task => (
           <TaskItem key={task.id}>
             <TaskItemTitle>
-              <span>{task.title}</span>
+              <span>{task.name}</span>
               <TaskItemTitleRight>
-                <Icon name="bofang" />
-                <Icon name="lajitong" />
+                {task.status === TaskStatusEnum.DOWNLOADING ||
+                task.status === TaskStatusEnum.PAUSE ? (
+                  <Icon
+                    name={mapPlayIconName(task.status)}
+                    onClick={() => playOrPause(task.id)}
+                  />
+                ) : null}
+                <Icon name="lajitong" onClick={() => delTask(task.id)} />
               </TaskItemTitleRight>
             </TaskItemTitle>
             <Progress ratio={task.progress} />
