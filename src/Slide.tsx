@@ -17,17 +17,17 @@ type MenusItemSty = {
 const InitMenus: MenusItem[] = [
   {
     label: "未下载",
-    path: "/unDownload",
+    path: "unDownload",
     active: false
   },
   {
     label: "进行中",
-    path: "/",
+    path: "",
     active: true
   },
   {
     label: "已完成",
-    path: "/downloaded",
+    path: "downloaded",
     active: false
   }
 ];

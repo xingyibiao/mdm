@@ -69,7 +69,7 @@ const DownLoaded: FC = () => {
     <DownLoadedContainer>
       <Header>已完成</Header>
       {storeTasks.map(task => (
-        <DownLoadedItem>
+        <DownLoadedItem key={task.id}>
           <div>{task.name}</div>
           <DownLoadedIcons>
             <Icon name="tuzu" onClick={() => openFile(task.id)} />
