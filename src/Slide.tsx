@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import events from "./eventBus";
@@ -57,6 +57,27 @@ const SlideItem = styled.div<MenusItemSty>`
 
 export default function SlideMenu() {
   const [menus, setMenus] = useState<MenusItem[]>(InitMenus);
+  // const history = useHistory()
+
+  useEffect(() => {
+    function handlerRouteChange(path: string) {
+      const len = menus.length;
+
+      const tempMenus = [...menus];
+
+      for (let i = 0; i < len; i++) {
+        const menu = tempMenus[i];
+        menu.active = menu.path === path;
+      }
+
+      setMenus(tempMenus);
+    }
+    events.addListener("routerChange", handlerRouteChange);
+
+    return () => {
+      events.removeListener("routerChange", handlerRouteChange);
+    };
+  }, []);
 
   function handlerMenuClick(path: string) {
     const len = menus.length;

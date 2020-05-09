@@ -7,14 +7,14 @@ const CursorSpan = styled.span`
 
 interface IconProps {
   name: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function Icon(props: IconProps) {
   return (
     <CursorSpan
       className={`iconfont icon-${props.name}`}
-      onClick={props.onClick}
+      onClick={() => props.onClick && props.onClick()}
     />
   );
 }

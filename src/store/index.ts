@@ -78,6 +78,7 @@ const rootSlice = createSlice<RootStateType, any>({
       if (
         index === -1 ||
         (status !== TaskStatusEnum.DOWNLOADING &&
+          status !== TaskStatusEnum.NOT_DOWNLOAD &&
           status !== TaskStatusEnum.PAUSE)
       )
         return state;
@@ -86,7 +87,6 @@ const rootSlice = createSlice<RootStateType, any>({
         status === TaskStatusEnum.DOWNLOADING
           ? TaskStatusEnum.PAUSE
           : TaskStatusEnum.DOWNLOADING;
-
       return changeTaskStatusById(state, { id: payload, status: newStatus });
     },
     resetTask(state: RootStateType, { payload }: { payload: RootStateType }) {

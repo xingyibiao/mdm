@@ -9,13 +9,7 @@ import { deleteTask, continueOrPauseTask } from "../store";
 
 import { TaskStatusEnum } from "../enum";
 
-const FlexBox = styled.div`
-  display: flex;
-`;
-
-const Colum = styled(FlexBox)`
-  flex-direction: column;
-`;
+import { FlexBox, Colum } from "../styles";
 
 const HomeContainer = styled(Colum)``;
 
